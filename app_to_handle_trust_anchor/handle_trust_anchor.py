@@ -33,7 +33,7 @@ try:
     while True:
         receivedMessage = getMessage()
         if receivedMessage == "add":
-            add_cert = os.system('certutil -A -n BLOCKCHAIN -t "TCu,TCu,TCu" -i /home/andrea/Desktop/tesi_repository_2/bindingpoc/cert/cert_root_CA.crt -d /home/andrea/.mozilla/firefox/tlingthy.default-release')
+            add_cert = os.system('certutil -A -n BLOCKCHAIN -t "TCu,TCu,TCu" -i /home/andrea/Desktop/extensions-to-verify-decentralized-certificate/bindingpoc/cert/cert_root_CA.crt -d /home/andrea/.mozilla/firefox/tlingthy.default-release')
             if add_cert == 0:
                     sendMessage(encodeMessage("CA aggiunta con successo"))
             else:
@@ -74,7 +74,7 @@ except AttributeError:
     while True:
         receivedMessage = getMessage()
         if receivedMessage == "add":
-            add_cert = os.system('certutil -A -n BLOCKCHAIN -t "TCu,TCu,TCu" -i /home/andrea/Desktop/tesi_repository_2/bindingpoc/cert/cert_root_CA.crt -d /home/andrea/.mozilla/firefox/tlingthy.default-release')
+            add_cert = os.system('certutil -A -n BLOCKCHAIN -t "TCu,TCu,TCu" -i /home/andrea/Desktop/extensions-to-verify-decentralized-certificate/bindingpoc/cert/cert_root_CA.crt -d /home/andrea/.mozilla/firefox/tlingthy.default-release')
             if add_cert == 0:
                     sendMessage(encodeMessage("CA aggiunta con successo"))
             else:

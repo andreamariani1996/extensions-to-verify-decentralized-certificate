@@ -1,7 +1,7 @@
 {
   "name": "handle_trust_anchor",
   "description": "Host per native messaging",
-  "path": "/home/andrea/Desktop/tesi_repository_2/app_to_handle_trust_anchor/handle_trust_anchor.py",
+  "path": "/home/andrea/Desktop/extensions-to-verify-decentralized-certificate/app_to_handle_trust_anchor/handle_trust_anchor.py",
   "type": "stdio",
   "allowed_extensions": [ "certificate_verifier@extension.com", "certificate_verifier_supporter@extension.com" ]
 }
