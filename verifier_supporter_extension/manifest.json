@@ -1,0 +1,28 @@
+{
+    "manifest_version": 2,
+    "name": "Verifier's supporter",
+    "version": "1.0",
+    "description": "Estensione per supportare il verifier.",
+
+    "icons": {
+        "52": "icons/verifier_supporter.png"
+    },
+    
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "certificate_verifier_supporter@extension.com"
+        }
+    },
+
+    "background": {
+        "page": "background.html"
+    },
+
+    "browser_action": {
+        "default_icon": "icons/verifier_supporter.png"
+    },
+
+    "permissions": [ "nativeMessaging", "management" ],
+    
+    "content_security_policy": "script-src 'self'; 'unsafe-eval'; object-src 'self';"
+}

@@ -1,0 +1,28 @@
+{
+    "manifest_version": 2,
+    "name": "Verifier",
+    "version": "1.0",
+    "description": "Estensione per verificare i certificati.",
+
+    "icons": {
+        "52": "icons/verifier.png"
+    },
+    
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "certificate_verifier@extension.com"
+        }
+    },
+
+    "background": {
+        "page": "background.html"
+    },
+
+    "browser_action": {
+        "default_icon": "icons/verifier.png"
+    },
+
+    "permissions": [ "webRequest", "webRequestBlocking", "<all_urls>", "nativeMessaging" ],
+    
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';"
+}

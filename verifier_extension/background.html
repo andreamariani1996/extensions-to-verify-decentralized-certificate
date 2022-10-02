@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Verifier</title>
+</head>
+<body>
+	<h1>Hello i'm the verifier</h1>
+	<!-- basta usare Web3(...) dentro background.js -->
+	<script src='./web3.min.js'></script>
+	<script src="verifier_bundle.js"></script>
+	<script src="decoder_bundle.js"></script>
+	<!-- qui il type="module" serve per forza -->
+	<script type="module" src='./background.js'></script>
+	<!-- <script src='./test-for-import.js'></script> -->
+</body>
+</html>

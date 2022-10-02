@@ -1,0 +1,9 @@
+{
+  "UrlProviderHTTP": "http://127.0.0.1:8545",
+  "UrlProviderWS": "ws://127.0.0.1:8545",
+  "User": {
+    "sK": "0x0e9342c84bd52ff512b08e5e56894cb077dc7d44a098da10e5112de58361deb8",
+    "pK": "61041de0879f8aefea1c5a124ae2e42c8840e26a16a20134de2f9e76367d90938f6da5da5d150e43a40bb33ab949dc555377e78078ec288adf3179d49612c813",
+    "address": "0xE8876998C498A94c6e1DB1e6401aA05959489ef6"
+  }
+}
