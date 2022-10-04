@@ -53,6 +53,8 @@ async function verify(details) {
   console.log("[LST TLS PARSING]: creato un filtro qua per modificare la risposta:")
   console.log(filter)
 
+  // viene messo await per aspettare che si riceva risposta, vedi Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise e https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await
+  // se viene messo await si deve mettere async, ma così facendo l'ascoltatore di eventi (funzione verify) è asincrono, mentre noi lo vogliamo sincrono e si fa con "blocking" 
   var securityInfo = await browser.webRequest.getSecurityInfo(requestId, {
       // se si mette certificateChain : true non compare il certificato
       certificateChain: false,
@@ -94,7 +96,7 @@ async function verify(details) {
                 var encoder = new TextEncoder();
                 // questa parte serve quando il plug-in fa la verifica della prova presente nel certificato, 
                 // se la verifica va a buon fine viene mostrata la pagina, no altrimenti 
-                filter.ondata = event => {
+                filter.ondata = function(event) {
                   let str = decoder.decode(event.data, {stream: true});
                   // Just change any instance of Example in the HTTP response
                   // to WebExtension Example.
@@ -114,6 +116,12 @@ async function verify(details) {
               
           })
   console.log("[LISTENER TLS]: fine parsing del certificato grezzo, sotto arriveranno i risultati")
+
+
+  // si può restituire un oggetto BlockingResponse https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/BlockingResponse, che serve per ridirezionare la richiesta o cancellarla. Può anche restituita una Promise per far operare l'event-listener in modo asincrono
+  // return { redirectUrl: "https://www.google.com/" };
+  // return { cancel: true };
+
 } 
 
 // https://developer.chrome.com/extensions/match_patterns
@@ -124,5 +132,8 @@ var extraInfoSpec = ["blocking"];
 
 // https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/webRequest/onHeadersReceived
 browser.webRequest.onHeadersReceived.addListener(verify, ALL_SITES, extraInfoSpec);
+
+// si controlla se per un evento c'è un ascoltatore di eventi
+console.log("[MAIN]: è presente la funzione (ovvero il listener) per quell'evento? " + browser.webRequest.onHeadersReceived.hasListener(verify));
 
 console.log("[MAIN]: attivato listener di connessioni TLS");
